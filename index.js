@@ -91,8 +91,8 @@ function renderVisibleCard(container,passedCard,index){
         card.addEventListener('click',()=>{
             placeCard(passedCard,index)
             changePlayer()
-            //render()
-            setTimeout(()=>{render,setTimeout},1000)
+            render()
+            setTimeout(theirTurn,1000)
         })
     }
 }
