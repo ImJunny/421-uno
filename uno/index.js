@@ -52,6 +52,7 @@ let discardContainer = document.getElementById('discardContainer')
 let drawContainer = document.getElementById('drawContainer')
 let theirContainer = document.getElementById('theirContainer')
 let yourContainer = document.getElementById('yourContainer')
+let choiceContainer = document.getElementById('choiceContainer')
 
 function render(){
     discardContainer.innerHTML="";
@@ -116,6 +117,8 @@ function renderInvisibleCard(container){
     card.appendChild(backdrop)
     card.appendChild(symbol)
     container.appendChild(card)
+
+    
     //if draw, make clickable
     if (player==1 && container==drawContainer){
         card.classList.add('clickableCard')
@@ -123,11 +126,9 @@ function renderInvisibleCard(container){
             drawCard(1,1)
             changePlayer()
             render()
-            setTimeout(theirTurn,1000)
-            
+            setTimeout(theirTurn,1000) 
         })
     }
-    
 }
 
 function isMatch(card){
