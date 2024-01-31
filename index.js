@@ -35,18 +35,16 @@ function shuffleDeck(){
 function assignCards(){
     drawCard(0,7)
     drawCard(1,7)
-    discardDeck.push(drawDeck[0])
-    drawDeck = drawDeck.slice(1)
+    discardDeck.push(drawDeck.pop())
 }
 
 function drawCard(player, amount){
     for(let i=0; i<amount; i++){
         if(player==1){
-            yourDeck.push(drawDeck[0])
+            yourDeck.push(drawDeck.pop())
         }else{
-            theirDeck.push(drawDeck[0])
+            theirDeck.push(drawDeck.pop())
         }
-        drawDeck = drawDeck.slice(1)
     }
 }
 
@@ -92,7 +90,9 @@ function renderVisibleCard(container,passedCard,index){
             placeCard(passedCard,index)
             changePlayer()
             render()
-            setTimeout(theirTurn,1000)
+            if (player!=-1){
+                setTimeout(theirTurn,1000)
+            }
         })
     }
 }
@@ -174,8 +174,7 @@ function updateGameState(){
         drawDeck=discardDeck
         shuffleDeck()
         discardDeck=[]
-        discardDeck.push(drawDeck[0])
-        drawDeck = drawDeck.slice(1)
+        discardDeck.push(drawDeck.pop())
     }
 }
 
