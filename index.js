@@ -121,9 +121,10 @@ function renderInvisibleCard(container){
         card.classList.add('clickableCard')
         card.addEventListener('click',()=>{
             drawCard(1,1)
+            changePlayer()
             render()
             setTimeout(theirTurn,1000)
-            changePlayer()
+            
         })
     }
     
